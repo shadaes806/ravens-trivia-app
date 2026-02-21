@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baltimore Ravens Trivia</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='RavenStyle.css') }}"/>
+</head>
+
+
+
+<body>
+
+
+<h1 class="welcome"> WELCOME TO THE BALTIMORE RAVENS TRIVIA GAME! </h1>
+
+
+</div>
+
+<img src="{{ url_for('static', filename='RavensLogo.png') }}" alt="Ravens Logo" class="logo">
+
+
+<form action="/" method="POST" class="name-form">
+    <label for="player_name">Enter Your Name:</label><br>
+    <input type="text" id="player_name" name="player_name" placeholder="Your Name" required>
+    <br><br>
+    <button type="submit" class="start-button">Start Trivia</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
