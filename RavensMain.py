@@ -1,6 +1,30 @@
 import sqlite3
 from flask import *
 
+
+
+def init_db():
+    conn = sqlite3.connect("leaderboard.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS scores (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        player_name TEXT NOT NULL,
+        score INTEGER NOT NULL
+    )
+    """)
+
+    conn.commit()
+    conn.close()
+init_db()
+
+
+app = Flask(__name__)
+app.secret_key = "supersecretkey"
+
+
+
 def save_score(player_name, score):
     conn = sqlite3.connect("leaderboard.db")
     cursor = conn.cursor()
