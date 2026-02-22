@@ -2,7 +2,7 @@ import sqlite3
 from flask import *
 
 def save_score(player_name, score):
-    conn = sqlite3.connect(r"C:\Users\ssmit\OneDrive\Desktop\Shadaeflash\RavensProject\leaderboard.db")
+    conn = sqlite3.connect("leaderboard.db")
     cursor = conn.cursor()
 
     cursor.execute("""INSERT INTO scores(player_name, score) VALUES (?,?)""", (player_name, score))
@@ -11,7 +11,7 @@ def save_score(player_name, score):
 
 
 def get_top_players(limit=5):
-    conn = sqlite3.connect(r"C:\Users\ssmit\OneDrive\Desktop\Shadaeflash\RavensProject\leaderboard.db")
+    conn = sqlite3.connect("leaderboard.db")
     c = conn.cursor()
     c.execute("SELECT player_name, score FROM scores ORDER BY score DESC LIMIT ?", (limit,))
     top = c.fetchall()
